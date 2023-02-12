@@ -25,3 +25,4 @@ This command restores your files from and backup.
 ### The Dashboard
 When Archon has finished an backup, it will popup a dashboard with some information about the backup.  
 The dashboard also has a backup history.
+You can also find the history under the assets in the archon base folder as a .csv file.
