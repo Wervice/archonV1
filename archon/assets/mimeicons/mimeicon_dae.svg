@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="256px" height="256px" viewBox="0 0 256 256" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path d="M0 16L64 16L64 80L0 80L0 16Z" id="path_1" />
+    <path d="M20 0L84 0L64 14L0 14L20 0Z" id="path_2" />
+    <path d="M66 15.9997L65.9999 79.9997L85.9999 59.9998L86 1.99999L66 15.9997Z" id="path_3" />
+    <rect width="256" height="256" id="artboard_1" />
+    <clipPath id="clip_1">
+      <use xlink:href="#artboard_1" clip-rule="evenodd" />
+    </clipPath>
+    <clipPath id="clip_2">
+      <use xlink:href="#path_1" />
+    </clipPath>
+    <clipPath id="clip_3">
+      <use xlink:href="#path_2" />
+    </clipPath>
+    <clipPath id="clip_4">
+      <use xlink:href="#path_3" />
+    </clipPath>
+  </defs>
+  <g id="mimeicon_dae" clip-path="url(#clip_1)">
+    <use xlink:href="#artboard_1" stroke="none" fill="#FFFFFF" fill-opacity="0" />
+    <g id="Gruppieren" transform="translate(47 20)" artboard="20e2452e-f4a4-4eb1-8b1c-d4b12e90dba3">
+      <path d="M108 3.8147e-06L162 54L162 216L0 216L0 1.52588e-05L108 1.52588e-05L108 3.8147e-06Z" id="Rechteck-Subtrahieren" fill="#EFEFEF" fill-rule="evenodd" stroke="none" />
+      <path d="M108 0L162 54L108 54L108 0Z" id="Dreieck" fill="#000000" fill-opacity="0.8509804" fill-rule="evenodd" stroke="none" />
+    </g>
+    <g id="Gruppieren" transform="translate(86.99902 88)" artboard="434bd908-912a-4c4b-8621-d8c68f00a90d">
+      <g id="Rechteck">
+        <use stroke="none" fill="#EFEFEF" xlink:href="#path_1" fill-rule="evenodd" />
+        <g clip-path="url(#clip_2)">
+          <use xlink:href="#path_1" fill="none" stroke="#000000" stroke-width="10" />
+        </g>
+      </g>
+      <g id="Rechteck-2">
+        <use stroke="none" fill="#EFEFEF" xlink:href="#path_2" fill-rule="evenodd" />
+        <g clip-path="url(#clip_3)">
+          <use xlink:href="#path_2" fill="none" stroke="#000000" stroke-width="10" />
+        </g>
+      </g>
+      <g id="Rechteck-3">
+        <use stroke="none" fill="#EFEFEF" xlink:href="#path_3" fill-rule="evenodd" />
+        <g clip-path="url(#clip_4)">
+          <use xlink:href="#path_3" fill="none" stroke="#000000" stroke-width="10" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

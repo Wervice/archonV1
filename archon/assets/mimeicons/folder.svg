@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="256px" height="256px" viewBox="0 0 256 256" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <rect width="256" height="256" id="artboard_1" />
+    <clipPath id="clip_1">
+      <use xlink:href="#artboard_1" clip-rule="evenodd" />
+    </clipPath>
+  </defs>
+  <g id="folder" clip-path="url(#clip_1)">
+    <use xlink:href="#artboard_1" stroke="none" fill="#FFFFFF" fill-opacity="0" />
+    <path d="M18 66L239 66L239 190L18 190L18 66Z" id="Rechteck" fill="#FFBD3A" fill-rule="evenodd" stroke="none" artboard="6d52cd68-c2b3-41fa-ab75-c25bdde7ab85" />
+    <path d="M18 45L239 45L239 66L18 66L18 45Z" id="Rechteck-2" fill="#D59A26" fill-rule="evenodd" stroke="none" artboard="72869dce-71b7-4684-903e-97e949a33fc5" />
+    <path d="M34 33L92 33L92 66L34 66L34 33Z" id="Rechteck-3" fill="#0A76A8" fill-rule="evenodd" stroke="none" artboard="9fdb18b8-d48e-4b33-a7c2-b18b11c6646b" />
+    <path d="M184 66L209 66L209 190L184 190L184 66Z" id="Rechteck-4" fill="#FFFFFF" fill-opacity="0.49803922" fill-rule="evenodd" stroke="none" artboard="c51be115-5a86-4cb5-be78-18e063b03530" />
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="256px" height="256px" viewBox="0 0 256 256" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <rect width="256" height="256" id="artboard_1" />
+    <clipPath id="clip_1">
+      <use xlink:href="#artboard_1" clip-rule="evenodd" />
+    </clipPath>
+  </defs>
+  <g id="mimeicon_m4a" clip-path="url(#clip_1)">
+    <use xlink:href="#artboard_1" stroke="none" fill="#FFFFFF" fill-opacity="0" />
+    <g id="Gruppieren" transform="translate(47 20)" artboard="d436e8d9-634c-47ab-afd2-ce7c94f925e8">
+      <path d="M108 3.8147e-06L162 54L162 216L0 216L0 1.52588e-05L108 1.52588e-05L108 3.8147e-06Z" id="Rechteck-Subtrahieren" fill="#00A1EB" fill-rule="evenodd" stroke="none" />
+      <path d="M108 0L162 54L108 54L108 0Z" id="Dreieck" fill="#000000" fill-opacity="0.8509804" fill-rule="evenodd" stroke="none" />
+    </g>
+    <g id="M4A" fill="#FFFFFF" transform="translate(72 99)" artboard="b3be24e2-61e5-4b63-8e16-903afd2201cd">
+      <path d="M3.03409 11.5455L12.1364 11.5455L21.75 35L22.1591 35L31.7727 11.5455L40.875 11.5455L40.875 46.4545L33.7159 46.4545L33.7159 23.733L33.4261 23.733L24.392 46.2841L19.517 46.2841L10.483 23.6477L10.1932 23.6477L10.1932 46.4545L3.03409 46.4545L3.03409 11.5455ZM46.2102 40.3182L46.2102 34.5057L60.7841 11.5455L70.0227 11.5455L70.0227 34.4034L74.3523 34.4034L74.3523 40.3182L70.0227 40.3182L70.0227 46.4545L62.9659 46.4545L62.9659 40.3182L46.2102 40.3182ZM77.5909 46.4545L85.5 46.4545L88.0909 38.4943L100.688 38.4943L103.278 46.4545L111.188 46.4545L99.1534 11.5455L89.6421 11.5455L77.5909 46.4545ZM98.8296 32.733L89.9659 32.733L94.2614 19.5227L94.5341 19.5227L98.8296 32.733ZM63.1023 34.4034L63.1023 19.5909L62.8295 19.5909L53.642 34.1307L53.642 34.4034L63.1023 34.4034Z" />
+    </g>
+  </g>
+</svg>

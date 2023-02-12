@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="256px" height="256px" viewBox="0 0 256 256" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <rect width="256" height="256" id="artboard_1" />
+    <clipPath id="clip_1">
+      <use xlink:href="#artboard_1" clip-rule="evenodd" />
+    </clipPath>
+  </defs>
+  <g id="mimeicon_avi" clip-path="url(#clip_1)">
+    <use xlink:href="#artboard_1" stroke="none" fill="#FFFFFF" fill-opacity="0" />
+    <g id="Gruppieren" transform="translate(47 20)" artboard="8adad8a7-fbf0-4bb0-8f37-972f7a4d9101">
+      <path d="M108 3.8147e-06L162 54L162 216L0 216L0 1.52588e-05L108 1.52588e-05L108 3.8147e-06Z" id="Rechteck-Subtrahieren" fill="#00EB5A" fill-rule="evenodd" stroke="none" />
+      <path d="M108 0L162 54L108 54L108 0Z" id="Dreieck" fill="#000000" fill-opacity="0.8509804" fill-rule="evenodd" stroke="none" />
+    </g>
+    <g id="AVI" fill="#FFFFFF" transform="translate(86 97)" artboard="250d5ac7-38c3-4b29-aa9e-139764569b59">
+      <path d="M9.05114 46.4545L1.14205 46.4545L13.1932 11.5455L22.7045 11.5455L34.7386 46.4545L26.8295 46.4545L24.2386 38.4943L11.642 38.4943L9.05114 46.4545ZM45.2386 11.5455L53.6761 38.0682L54 38.0682L62.4545 11.5455L70.6364 11.5455L58.6023 46.4545L49.0909 46.4545L37.0398 11.5455L45.2386 11.5455ZM82.2102 46.4545L82.2102 11.5455L74.8295 11.5455L74.8295 46.4545L82.2102 46.4545ZM13.517 32.733L22.3807 32.733L18.0852 19.5227L17.8125 19.5227L13.517 32.733Z" />
+    </g>
+    <path d="M87.5 155L128 236L47 236L87.5 155Z" id="Dreieck" fill="#FFFFFF" fill-opacity="0.72156864" fill-rule="evenodd" stroke="none" artboard="d24635f0-a253-435b-8afb-a7f00215cfca" />
+    <path d="M121 170L154 236L88 236L121 170Z" id="Dreieck-2" fill="#E4FFED" fill-rule="evenodd" stroke="none" artboard="f04f06e0-e9eb-4ad5-9760-e1969c760d4c" />
+    <path d="M160.5 157L200 236L121 236L160.5 157Z" id="Dreieck-3" fill="#FCFFFD" fill-rule="evenodd" stroke="none" artboard="5a877078-1452-4dc2-a93a-94d1dba33fc8" />
+  </g>
+</svg>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="256px" height="256px" viewBox="0 0 256 256" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <rect width="256" height="256" id="artboard_1" />
+    <clipPath id="clip_1">
+      <use xlink:href="#artboard_1" clip-rule="evenodd" />
+    </clipPath>
+  </defs>
+  <g id="mimeicon_gif" clip-path="url(#clip_1)">
+    <use xlink:href="#artboard_1" stroke="none" fill="#FFFFFF" fill-opacity="0" />
+    <g id="Gruppieren" transform="translate(47 20)" artboard="2496bb8b-2cf6-491b-94fb-dcbf55850771">
+      <path d="M108 3.8147e-06L162 54L162 216L0 216L0 1.52588e-05L108 1.52588e-05L108 3.8147e-06Z" id="Rechteck-Subtrahieren" fill="#EB0800" fill-rule="evenodd" stroke="none" />
+      <path d="M108 0L162 54L108 54L108 0Z" id="Dreieck" fill="#000000" fill-opacity="0.8509804" fill-rule="evenodd" stroke="none" />
+    </g>
+    <g id="GIF" fill="#FFFFFF" transform="translate(89 99)" artboard="84dbbd5d-3327-4e94-98d3-bfc52cf85a69">
+      <path d="M26.1818 22.8295Q25.483 20.375 23.5994 18.9858Q21.7159 17.5966 18.8693 17.5966Q14.8636 17.5966 12.3835 20.554Q9.90341 23.5114 9.90341 28.9659Q9.90341 34.4375 12.3409 37.4205Q14.7784 40.4034 18.9375 40.4034Q22.6193 40.4034 24.7244 38.4858Q26.8295 36.5682 26.8977 33.3295L19.3977 33.3295L19.3977 27.7727L34.0057 27.7727L34.0057 32.1705Q34.0057 36.7557 32.0625 40.071Q30.1193 43.3864 26.7188 45.1591Q23.3182 46.9318 18.9034 46.9318Q13.9943 46.9318 10.2784 44.7585Q6.5625 42.5852 4.49148 38.571Q2.42045 34.5568 2.42045 29.0341Q2.42045 23.375 4.58523 19.3523Q6.75 15.3295 10.4489 13.1989Q14.1477 11.0682 18.75 11.0682Q22.7045 11.0682 25.9091 12.5682Q29.1136 14.0682 31.1591 16.7187Q33.2045 19.3693 33.6818 22.8295L26.1818 22.8295ZM46.9261 11.5455L46.9261 46.4545L39.5455 46.4545L39.5455 11.5455L46.9261 11.5455ZM53.0114 11.5455L53.0114 46.4545L60.392 46.4545L60.392 32.0341L74.5909 32.0341L74.5909 25.9489L60.392 25.9489L60.392 17.6307L76.125 17.6307L76.125 11.5455L53.0114 11.5455Z" />
+    </g>
+    <path d="M87.5 155L128 236L47 236L87.5 155Z" id="Dreieck" fill="#FFFFFF" fill-opacity="0.72156864" fill-rule="evenodd" stroke="none" artboard="82c63023-f39b-4815-aaff-debdbea7fa18" />
+    <path d="M121 170L154 236L88 236L121 170Z" id="Dreieck-2" fill="#FFE5E4" fill-rule="evenodd" stroke="none" artboard="52e0fc11-f9fa-4ab3-8f53-5337ca7bdf35" />
+    <path d="M160.5 157L200 236L121 236L160.5 157Z" id="Dreieck-3" fill="#FFFCFC" fill-rule="evenodd" stroke="none" artboard="b6edf1b8-e8d0-42b8-be4d-ec85eb162405" />
+  </g>
+</svg>

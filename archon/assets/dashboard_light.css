@@ -1,0 +1,79 @@
+@font-face {
+    font-family: "Inter";
+    src: url(Inter-Regular.ttf);
+}
+::selection {
+    background-color: #00000012;
+}
+* {
+    cursor: default;
+}
+body {
+    font-family: "Inter", Arial, Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0px;
+    margin: 0px;
+    font-size: 18px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Inter", Arial, Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: normal;
+    padding: 5px;
+    margin: 0px;
+}
+nav {
+    border-bottom: 1px #49a4ff solid;
+    background-color: #f4faff;
+    font-size: 22px;
+    color: rgb(9, 30, 51);
+    padding: 15px;
+}
+div#container {
+    padding: 10px;
+}
+td {
+    padding: 5px;
+}
+img {
+    margin-bottom: -6px;
+}
+div#note {
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f4faff;
+    color: #49a4ff;
+    width: 400px;
+    transition: all 0.25s ease-in-out;
+}
+div#note:hover {
+    background-color: #e0f2ff;
+    color: #168aff;
+}
+div#footer {
+    padding: 10px;
+    background-color: #f4faff;
+    border-top: #168aff 1px solid;
+    height: 200px;
+    margin: -10px;
+    margin-top: calc(80vh - 220px);
+}
+a, a:visited, a:hover, a:active {
+    color: #000000;
+}
+table .title {
+    background-color: #f4faff;
+}
+table#list {
+    padding: 5px;
+    width: auto;
+}
+span.green {
+    color: #04b040;
+}
+span.red {
+    color: #d60606;
+}
+div#list_wrapper {
+    max-height: 30vh;
+    width: 30vw;
+    overflow-y: scroll;
+}

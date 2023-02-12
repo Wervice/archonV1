@@ -1,0 +1,7 @@
+
+Archon allows you to back up and restore your files with a few simple commands.
+It also provides tools for compressing and encrypting your backup files.
+Backup files can be stored on an external drive or on your local hard drive.
+The backups are stored as .archn files.
+
+Open the documentation to learn more about using archon.

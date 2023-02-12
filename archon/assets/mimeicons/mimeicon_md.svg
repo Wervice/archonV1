@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="256px" height="256px" viewBox="0 0 256 256" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <rect width="256" height="256" id="artboard_1" />
+    <clipPath id="clip_1">
+      <use xlink:href="#artboard_1" clip-rule="evenodd" />
+    </clipPath>
+  </defs>
+  <g id="mimeicon_md" clip-path="url(#clip_1)">
+    <use xlink:href="#artboard_1" stroke="none" fill="#FFFFFF" fill-opacity="0" />
+    <g id="Gruppieren" transform="translate(47 20)" artboard="9f8878f0-e555-47ea-bf80-0259e4d5873f">
+      <path d="M108 3.8147e-06L162 54L162 216L0 216L0 1.52588e-05L108 1.52588e-05L108 3.8147e-06Z" id="Rechteck-Subtrahieren" fill="#BEC8D2" fill-rule="evenodd" stroke="none" />
+      <path d="M108 0L162 54L108 54L108 0Z" id="Dreieck" fill="#000000" fill-opacity="0.8509804" fill-rule="evenodd" stroke="none" />
+    </g>
+    <g id="Gruppieren-2" transform="translate(90 95)" artboard="5a6803da-52fc-43d6-8303-02001b4c7bb6">
+      <path d="M24 0L53 0L53 90L24 90L24 0Z" id="Rechteck" fill="#1C1E1F" fill-rule="evenodd" stroke="none" />
+      <path d="M38 106L76 61L0 61L38 106Z" id="Dreieck" fill="#1C1E1F" fill-rule="evenodd" stroke="none" />
+    </g>
+  </g>
+</svg>
