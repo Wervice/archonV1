@@ -1,6 +1,8 @@
 # Archon Backup
 Archon is the open source backup solution that will help you protect your files from damage and restore destructed files easily. Archon Backup Utility supports FTP, FTPS and Windows Network Paths. Archon compresses your backups with modern compression algorithms. It's fully written in Python, HTML, CSS and JavaScript. The fresh and easy backup reports will show you the results of any backup task.
 
+<img src="snapshot.png">
+
 First of all, I want to say thanks to the developers of termcolor. I use termcolor as a module in my applicatioon to style the output. Termcolor is licensed under the MIT License. You can find the license text of it under legal/termcolor.txt. I also want to say Thank You to all the other developers of the oher python-included libraries I used.
 ## How to install Archon?
 ### Run Archon
