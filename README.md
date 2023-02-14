@@ -17,10 +17,10 @@ You can easily use archon with a few simple commands. They are all listed and de
 | Command 	| Syntax 	| Meaning 	|
 |---	|---	|---	|
 | sbackup 	| python3 .\\\_\_main\_\_.py sbackup <file_to_backup> <backup_target> 	| Backup a single file to a local or Windows Network Path. 	|
-| fbackup 	| python3 .\\\__min__.py fbackup <folder_to_backup> <backup_target> 	| Backup a folder as compressed archive to a local or Windows Network Path. 	|
-| frestore 	| python3 .\\__main__.py frestore <backup_to_restore_from> <folder_to_restore> 	| Restore a folder from a backup stored on a local or Windows Network Path. 	|
-| frestoreftp 	| python3 .\\__main__.py frestoreftp <backup_to_restore_from> <folder_to_restore> <Use_TLS tls/none>  	| Restore a folder from a backup stored on a ftp server.<br>You will be asked for the login credentials. 	|
-| fbackupftp 	| python3 .\\__main__.py fbackupftp <folder_to_backup> <backup_to_restore_from> <Use_TLS tls/none> 	| Backup a folder as compressed archive to a ftp server.<br>You will be asked for the login credentials. 	|
+| fbackup 	| python3 .\\\_\_main\_\_.py fbackup <folder_to_backup> <backup_target> 	| Backup a folder as compressed archive to a local or Windows Network Path. 	|
+| frestore 	| python3 .\\\_\_main\_\_.py frestore <backup_to_restore_from> <folder_to_restore> 	| Restore a folder from a backup stored on a local or Windows Network Path. 	|
+| frestoreftp 	| python3 .\\\_\_main\_\_.py frestoreftp <backup_to_restore_from> <folder_to_restore> <Use_TLS tls/none>  	| Restore a folder from a backup stored on a ftp server.<br>You will be asked for the login credentials. 	|
+| fbackupftp 	| python3 .\\\_\_main\_\_.py fbackupftp <folder_to_backup> <backup_to_restore_from> <Use_TLS tls/none> 	| Backup a folder as compressed archive to a ftp server.<br>You will be asked for the login credentials. 	|
 ### The Reports
 When Archon has finished a backup, it will pop up a report with some information about the backup.
 The report also contains a backup history. 
