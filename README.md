@@ -10,20 +10,16 @@ To use Archon, you just have to download the archon folder and execute the pytho
 For example: `python3 .\__main__.py`.
 
 ### Commands
-The are the commands to use archon.
-### `backup`
-This command backups a single file to a location.  
-`python3 .\__main__.py backup [file_path] [destination_path]`
-### `fbackup`
-This command backups one folder and compresses the backup.  
-`python3 .\__main__.py fbackup [folder_path] [backup_location]`  
-> ⚠ You allways have to use the full path and the path has to end with \
-> Correct Example: C:\users\starred\MyPhotos\\  
-> Wrong Example: C:\users\starred\MyPhotos
-### `restore`
-This command restores your files from and backup.  
-`python3 .\__main__.py restore [backup_path] [broken_folder_path]`
+You can easily use archon with a few simple commands. They are all listed and discrined down here. Info: "f" means folder and "s" means single.
+> Warning: Please always enter the full path. A path has to end with \\.  
 
+| Command 	| Syntax 	| Meaning 	|
+|---	|---	|---	|
+| sbackup 	| python3 .\\__main__.py sbackup <file_to_backup> <backup_target> 	| Backup a single file to a local or Windows Network Path. 	|
+| fbackup 	| python3 .\\__main__.py fbackup <folder_to_backup> <backup_target> 	| Backup a folder as compressed archive to a local or Windows Network Path. 	|
+| frestore 	| python3 .\\__main__.py frestore <backup_to_restore_from> <folder_to_restore> 	| Restore a folder from a backup stored on a local or Windows Network Path. 	|
+| frestoreftp 	| python3 .\\__main__.py frestoreftp <backup_to_restore_from> <folder_to_restore> <Use_TLS tls/none>  	| Restore a folder from a backup stored on a ftp server.<br>You will be asked for the login credentials. 	|
+| fbackupftp 	| python3 .\\__main__.py fbackupftp <folder_to_backup> <backup_to_restore_from> <Use_TLS tls/none> 	| Backup a folder as compressed archive to a ftp server.<br>You will be asked for the login credentials. 	|
 ### The Reports
 When Archon has finished an backup, it will popup a report with some information about the backup.  
 The report also contains a backup history.
