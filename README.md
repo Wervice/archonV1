@@ -9,6 +9,7 @@ First, I want to say thanks to the developers of termcolor. I use termcolor as a
 ### Run Archon
 To use Archon, you just have to download the archon folder and execute the python script in it from the command-line.  
 For example: `python3 .\__main__.py`.
+> Please install termcolor using pip. `pip install termcolor`
 
 ### Commands
 You can easily use archon with a few simple commands. They are all listed and described down here. Info: "f" means folder and "s" means single.
