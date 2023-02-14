@@ -20,6 +20,7 @@
             transition: all 0.25s ease-in-out;
             width: 100px;
         }
+
         button:hover {
             filter: brightness(90%);
             box-shadow: 0px 2.5px 5px #00000002;
@@ -76,12 +77,15 @@
                 <td>$time</td>
             </tr>
         </table><br>
-        <h3>Previous tasks</h3>
+        <h3>Backup history</h3>
         <div id="list_wrapper">
-        <table id="list">
-            $backup_list
-        </table>
-    </div>
+            <table id="list">
+                $backup_list
+            </table>
+        </div>
+        <br>
+        <button onclick="window.open('backup_list.csv')">Download history</button><br><br>
+
         <div id="note">$note</div>
         <div id="footer">&copy; Constantin Volke 2023<br>
             Designed and created by Constantin Volke.<br><a href="https://wervice.github.io">Wervice Homepage</a></div>

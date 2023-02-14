@@ -60,7 +60,7 @@ a, a:visited, a:hover, a:active {
     color: #000000;
 }
 table .title {
-    background-color: #f4faff;
+    text-decoration: underline;
 }
 table#list {
     padding: 5px;
@@ -74,6 +74,6 @@ span.red {
 }
 div#list_wrapper {
     max-height: 30vh;
-    width: 30vw;
+    width: 40vw;
     overflow-y: scroll;
 }
