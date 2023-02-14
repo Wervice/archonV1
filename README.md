@@ -31,4 +31,4 @@ You can also find the history under the assets in the archon base folder as a .c
 
 
 ----
-> ‼ __Warning: Archon comes with absolutely no guaranty. If something goes wrong and your files are destroyed or can't be restored, I can't be held responsible for this. Archon is used at your own risk.__
+> ‼ __Warning: Archon comes with absolutely no warranty. If something goes wrong and your files are destroyed or can't be restored, I can't be held responsible for this. Archon is used at your own risk.__
