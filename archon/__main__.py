@@ -20,7 +20,9 @@ def filedestroy(file):
         while i != os.stat(file).st_size:
             s = s+chr(random.randint(0, 100))
             i = i+1
-        open(file, "w").write(s)
+        overwriter = open(file, "w")
+        overwriter.write(s)
+        overwriter.close()
         bi = bi+1
     os.remove(file)
 def is_unc_path(path):
@@ -29,17 +31,25 @@ def is_unc_path(path):
 try:
     if len(sys.argv) == 1:
         # Writes the breefing
-        print(open(".\\assets\\breefing.txt", "r").read())
+        breefing_f = open(".\\assets\\breefing.txt", "r")
+        print(breefing_f.read())
+        breefing_f.close()
     else:
         if sys.argv[1] == "sbackup":
             # Backup a single file
             try:
                 # Copies the file to the destination location
-                open(sys.argv[3], "wb").write(open(sys.argv[2], "rb").read())
+                dest_f = open(sys.argv[3], "wb")
+                origin_f = open(sys.argv[2], "rb")
+                dest_f.write(origin_f.read())
+                dest_f.close()
+                origin_f.close()
                 # Shows the copy indicator
                 print(colored("[-] Copy: " + sys.argv[2] + " => " + sys.argv[3], "blue"))
                 # Check the copy
-                if (open(sys.argv[2], "rb").read() == open(sys.argv[3], "rb").read()):
+                origin_f_check = open(sys.argv[2], "rb")
+                dest_f_check = open(sys.argv[3], "rb")
+                if (origin_f_check.read() == dest_f_check.read()):
                     print(colored("[*] Backup file", "green"))
                     # Push to the dashboard
                     dashboard.push("success", sys.argv[2], sys.argv[3])
@@ -55,6 +65,8 @@ try:
                 dashboard.push("fail_filenotfound", sys.argv[2], sys.argv[3])
                 dashboard.show()
                 print(colored("File Not Found", "red"))
+                origin_f_check.close()
+                dest_f_check.close()
         elif sys.argv[1] == "fbackup":
             # Backup a folder and compress it as xztar file.
             encrypted = "Y" == input(colored("Do you want to make an encrypted archive? (Y/n) ", "blue"))
@@ -70,8 +82,9 @@ try:
                     "\\")[len(os.path.dirname(sys.argv[2]).split("\\"))-1]  # Get foldername
                 print(colored("[-] Make compressed tar archive", "blue"))  # Print "Make the archive"
                 # Write the metadata to the backupfolder
-                open(sys.argv[2]+"archon_metadata",
-                     "w").write(dt_string+";\n"+str(now)+";\n"+os.getlogin())
+                metadata_f_writer = open(sys.argv[2]+"archon_metadata", "w")
+                metadata_f_writer.write(dt_string+";\n"+str(now)+";\n"+os.getlogin())
+                metadata_f_writer.close()
                 # Make the arcive
                 shutil.make_archive(
                     sys.argv[3]+"\\"+foldername, 'xztar', sys.argv[2])
@@ -120,7 +133,9 @@ try:
                         ".\\temp_archon_restore_file.tmp", sys.argv[3], format="xztar")
                     print(colored("[*] Restoring files", "green"))
                 # Read the metadata to the chache
-                metadata = open(sys.argv[3]+"archon_metadata", "r").read()
+                metadata_f_reader_ftp = open(sys.argv[3]+"archon_metadata", "r")
+                metadata = metadata_f_reader_ftp.read()
+                metadata_f_reader_ftp.close()
                 print(colored("[-] Remove temporary files", "blue"))  # Status message
                 os.remove(sys.argv[3]+"archon_metadata")  # Remove metadata file
                 os.remove(".\\temp_archon_restore_file.tmp") # Remove downloaded file
@@ -129,7 +144,7 @@ try:
                 # Print status message and metadata time
                 print(colored("[*] Restored from backup (Backup Time " +
                     metadata.split(";\n")[0]+")", "green"))
-            except FileNotFoundError:
+            except IndexError:
                 print(colored("File Not Found\nExiting now", "red"))
         elif sys.argv[1] == "fbackupftp":
             host = input(colored("Host: ", "blue"))
@@ -149,8 +164,10 @@ try:
                     "\\")[len(os.path.dirname(sys.argv[2]).split("\\"))-1]  # Get foldername
                 print(colored("[-] Make compressed tar archive", "blue"))  # Print "Make the archive"
                 # Write the metadata to the backupfolder
-                open(sys.argv[2]+"archon_metadata",
-                     "w").write(dt_string+";\n"+str(now)+";\n"+os.getlogin())
+                metadata_f_writer_ftp = open(sys.argv[2]+"archon_metadata",
+                     "w")
+                metadata_f_writer_ftp.write(dt_string+";\n"+str(now)+";\n"+os.getlogin())
+                metadata_f_writer_ftp.close()
                 # Make the arcive
                 shutil.make_archive(
                     ".\\archon_temp_backup_ftp_archive", 'xztar', sys.argv[2])
@@ -196,7 +213,9 @@ try:
                     backup_archive += ".aes"
                 else:
                     backup_archive = backup_archive
-                connection.storbinary("STOR %s" % (backup_location),  open(backup_archive, "rb"))
+                backup_submitter = open(backup_archive, "rb")
+                connection.storbinary("STOR %s" % (backup_location),  backup_submitter)
+                backup_submitter.close()
                 print(colored("[*] Wrote file to server", "green"))
             except ftplib.error_perm:
                 print(colored("[x] You're not allowed to write the backup there", "red"))
@@ -237,7 +256,8 @@ try:
             connection.login(user=username, passwd=password)
             print(colored("[*] Connected", "green"))
             connection.retrbinary("RETR %s" % (sys.argv[2]), open("temp_archon_restore_file_ftp.tmp", "wb").write)
-            pyAesCrypt.decryptFile("temp_archon_restore_file_ftp.tmp", "temp_archon_restore_file_ftp.tmp.d", passw=password_archive, bufferSize=1024*63)
+            if encrypted:
+                pyAesCrypt.decryptFile("temp_archon_restore_file_ftp.tmp", "temp_archon_restore_file_ftp.tmp.d", passw=password_archive, bufferSize=1024*63)
             try:
                 print(colored("[-] Getting backups", "blue"))  # Status message
                 # Download the backup
