@@ -1,14 +1,28 @@
 import os
 import sys
-from libs import dashboard as dashboard
 import shutil
 import re
 import ftplib
+import random
+import math
+import pyAesCrypt
+from libs import dashboard as dashboard
 from termcolor import colored
 from datetime import datetime
 now = datetime.now()
 # Date and time as a formatted string
 dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+def filedestroy(file):
+    bi = 0
+    while bi != 3:
+        s = ""
+        i = 0
+        while i != os.stat(file).st_size:
+            s = s+chr(random.randint(0, 100))
+            i = i+1
+        open(file, "w").write(s)
+        bi = bi+1
+    os.remove(file)
 def is_unc_path(path):
     unc_path = re.compile(r"^\\\\[\w\.]+\\.+")
     return bool(unc_path.match(path))
@@ -43,6 +57,10 @@ try:
                 print(colored("File Not Found", "red"))
         elif sys.argv[1] == "fbackup":
             # Backup a folder and compress it as xztar file.
+            encrypted = "Y" == input(colored("Do you want to make an encrypted archive? (Y/n) ", "blue"))
+            if encrypted:
+                password = input(colored("Password> ", "blue"))
+                overwrite = "y" == input(colored("Do you want to overwrite the unencrypted version (y/N) ", "blue"))
             try:
                 if is_unc_path(sys.argv[3]):
                     print(colored("[-] Backup folder to network location", "blue"))
@@ -57,6 +75,13 @@ try:
                 # Make the arcive
                 shutil.make_archive(
                     sys.argv[3]+"\\"+foldername, 'xztar', sys.argv[2])
+                if encrypted:
+                    pyAesCrypt.encryptFile(sys.argv[3]+"\\"+foldername+".tar.xz", sys.argv[3]+"\\"+foldername+".tar.xz.aes", passw=password, bufferSize=1024*64)
+                    if overwrite:
+                        print(colored("[-] Overwriting unencrypted version. This may take long.", "blue"))
+                        filedestroy(sys.argv[3]+"\\"+foldername+".tar.xz")
+                    else:
+                        os.remove(sys.argv[3]+"\\"+foldername+".tar.xz")
                 # Delete the metadata from the folder
                 os.remove(sys.argv[2]+"archon_metadata")
                 print(colored("[*] Backup folder", "green"))  # Print Done
@@ -152,7 +177,7 @@ try:
             os.remove(".\\archon_temp_backup_ftp_archive.tar.xz")
             print(colored("[-] FTP Connection Closed", "blue"))
             print(colored("[*] Done", "green"))
-        if sys.argv[1] == "frestoreftp":
+        elif sys.argv[1] == "frestoreftp":
             host = input(colored("Host: ", "blue"))
             username = input(colored("Username: ", "blue"))
             password = input(colored("Password: ", "blue"))

@@ -1,7 +1,9 @@
-
-Archon allows you to back up and restore your files with a few simple commands.
-It also provides tools for compressing and encrypting your backup files.
-Backup files can be stored on an external drive or on your local hard drive.
-The backups are stored as .archn files.
-
-Open the documentation to learn more about using archon.
+Archon allows you to backup files and folders to local locations, media drives,
+network locations and ftp servers.
+The backup archives are compressed and tar formatted.
+Archon also supports full backup encryption using a strong AES Api.
+Please open the Readme file on my respository for this on GitHub,
+to learn more about how to use this tool.
+I want to say "Thank you" to the developers of all the amazing python libraries is used.
+I've added the license textes for termcolor ("MIT License") 
+and pyAesCrypt ("Apache License 2.0") in the folder "legal".
