@@ -94,10 +94,15 @@ try:
                 dashboard.show()
                 print(colored("File Not Found\nExiting now", "red"))
         elif sys.argv[1] == "frestore":
+            encrypted = "Y" == input(colored("Is the backup you want to use encrypted? (Y/n) ", "blue"))
+            if encrypted:
+                password = input(colored("Password> ", "blue"))
             try:
                 print(colored("[-] Getting backups", "blue"))  # Status message
                 # Download the backup
                 shutil.copy(sys.argv[2], ".\\temp_archon_restore_file.tmp")
+                if encrypted:
+                    pyAesCrypt.decryptFile(infile=".\\temp_archon_restore_file.tmp", outfile=".\\temp_archon_restore_file.tmp.d", passw=password, bufferSize=1024*64)
                 if os.path.exists(".\\temp_archon_restore_file.tmp"):
                     print(colored("[*] Got backups", "green"))
                 else:
@@ -106,14 +111,21 @@ try:
                     exit()
                 print(colored("[-] Restoring files", "blue"))  # Status message
                 # Unpack the downloaded archive
-                shutil.unpack_archive(
-                    ".\\temp_archon_restore_file.tmp", sys.argv[3], format="xztar")
-                print(colored("[*] Restoring files", "green"))
+                if encrypted:
+                    shutil.unpack_archive(
+                        ".\\temp_archon_restore_file.tmp.d", sys.argv[3], format="xztar")
+                    print(colored("[*] Restoring files", "green"))
+                else:
+                    shutil.unpack_archive(
+                        ".\\temp_archon_restore_file.tmp", sys.argv[3], format="xztar")
+                    print(colored("[*] Restoring files", "green"))
                 # Read the metadata to the chache
                 metadata = open(sys.argv[3]+"archon_metadata", "r").read()
                 print(colored("[-] Remove temporary files", "blue"))  # Status message
                 os.remove(sys.argv[3]+"archon_metadata")  # Remove metadata file
                 os.remove(".\\temp_archon_restore_file.tmp") # Remove downloaded file
+                if encrypted:
+                    os.remove(".\\temp_archon_restore_file.tmp.d")
                 # Print status message and metadata time
                 print(colored("[*] Restored from backup (Backup Time " +
                     metadata.split(";\n")[0]+")", "green"))
@@ -122,9 +134,14 @@ try:
         elif sys.argv[1] == "fbackupftp":
             host = input(colored("Host: ", "blue"))
             username = input(colored("Username: ", "blue"))
-            password = input(colored("Password: ", "blue"))
+            password_server = input(colored("Password: ", "blue"))
             backup_archive = ".\\archon_temp_backup_ftp_archive.tar.xz"
             backup_location = sys.argv[3]
+
+            encrypted = "Y" == input(colored("Do you want to make an encrypted archive? (Y/n) ", "blue"))
+            if encrypted:
+                password = input(colored("Password> ", "blue"))
+                overwrite = "y" == input(colored("Do you want to overwrite the unencrypted version (y/N) ", "blue"))
 
             try:
                 print(colored("[-] Generate archive", "blue"))
@@ -137,6 +154,12 @@ try:
                 # Make the arcive
                 shutil.make_archive(
                     ".\\archon_temp_backup_ftp_archive", 'xztar', sys.argv[2])
+                if encrypted:
+                    pyAesCrypt.encryptFile(".\\archon_temp_backup_ftp_archive.tar.xz", ".\\archon_temp_backup_ftp_archive.tar.xz.aes", passw=password, bufferSize=1024*64)
+                    if overwrite:
+                        filedestroy(".\\archon_temp_backup_ftp_archive.tar.xz")
+                    else:
+                        os.remove(".\\archon_temp_backup_ftp_archive.tar.xz")
                 # Delete the metadata from the folder
                 os.remove(sys.argv[2]+"archon_metadata")
                 print(colored("[*] Backup folder", "green"))  # Print Done
@@ -148,14 +171,14 @@ try:
                 print(colored("[-] Will use TLS (FTPS)", "blue"))
                 connection = ftplib.FTP_TLS(host=host)
             elif sys.argv[4] == "none":
-                print(colored("[?] Your connection is not secure. Do you wan to continue?", "red"))
+                print(colored("[?] Your connection is not secure. Do you want to continue?", "red"))
                 if input("Y/n> ") == "Y":
                     connection = ftplib.FTP(host=host)
                 else:
                     print(colored("[x] Abborted", "red"))
                     exit()
             else:
-                print(colored("[?] Your connection is not secure. Do you wan to continue?", "red"))
+                print(colored("[?] Your connection is not secure. Do you want to continue?", "red"))
                 if input("Y/n> ") == "Y":
                     connection = ftplib.FTP(host=host)
                 else:
@@ -163,24 +186,34 @@ try:
                     exit()
             connection.connect()
             try:
-                connection.login(user=username, passwd=password)
+                connection.login(user=username, passwd=password_server)
                 print(colored("[*] Connected", "green"))
             except ftplib.error_perm:
                 print(colored("[x] Permission Error", "red"))
                 exit()
             try:
+                if encrypted:
+                    backup_archive += ".aes"
+                else:
+                    backup_archive = backup_archive
                 connection.storbinary("STOR %s" % (backup_location),  open(backup_archive, "rb"))
                 print(colored("[*] Wrote file to server", "green"))
             except ftplib.error_perm:
                 print(colored("[x] You're not allowed to write the backup there", "red"))
             connection.close()
-            os.remove(".\\archon_temp_backup_ftp_archive.tar.xz")
+            if encrypted:
+                os.remove(".\\archon_temp_backup_ftp_archive.tar.xz.aes")
+            else:
+                os.remove(".\\archon_temp_backup_ftp_archive.tar.xz")
             print(colored("[-] FTP Connection Closed", "blue"))
             print(colored("[*] Done", "green"))
         elif sys.argv[1] == "frestoreftp":
             host = input(colored("Host: ", "blue"))
             username = input(colored("Username: ", "blue"))
             password = input(colored("Password: ", "blue"))
+            encrypted = "Y" == input(colored("Is the backup you want to use encrypted? (Y/n) ", "blue"))
+            if encrypted:
+                password_archive = input(colored("Password> ", "blue"))
 
             # FTP
             # Build FTP Connection
@@ -188,14 +221,14 @@ try:
                 print(colored("[-] Will use TLS (FTPS)", "blue"))
                 connection = ftplib.FTP_TLS(host=host)
             elif sys.argv[4] == "none":
-                print(colored("[?] Your connection is not secure. Do you wan to continue?", "red"))
+                print(colored("[?] Your connection is not secure. Do you want to continue?", "red"))
                 if input("Y/n> ") == "Y":
                     connection = ftplib.FTP(host=host)
                 else:
                     print(colored("[x] Abborted", "red"))
                     exit()
             else:
-                print(colored("[?] Your connection is not secure. Do you wan to continue?", "red"))
+                print(colored("[?] Your connection is not secure. Do you want to continue?", "red"))
                 if input("Y/n> ") == "Y":
                     connection = ftplib.FTP(host=host)
                 else:
@@ -204,11 +237,11 @@ try:
             connection.login(user=username, passwd=password)
             print(colored("[*] Connected", "green"))
             connection.retrbinary("RETR %s" % (sys.argv[2]), open("temp_archon_restore_file_ftp.tmp", "wb").write)
-        
+            pyAesCrypt.decryptFile("temp_archon_restore_file_ftp.tmp", "temp_archon_restore_file_ftp.tmp.d", passw=password_archive, bufferSize=1024*63)
             try:
                 print(colored("[-] Getting backups", "blue"))  # Status message
                 # Download the backup
-                if os.path.exists(".\\temp_archon_restore_file_ftp.tmp"):
+                if os.path.exists(".\\temp_archon_restore_file_ftp.tmp") or os.path.exists(".\\temp_archon_restore_file_ftp.tmp.d"):
                     print(colored("[*] Got backups", "green"))
                 else:
                     print(colored("[x] Getting backups failed. Please try again.", "red"))
@@ -216,14 +249,20 @@ try:
                     exit()
                 print(colored("[-] Restoring files", "blue"))  # Status message
                 # Unpack the downloaded archive
-                shutil.unpack_archive(
-                    ".\\temp_archon_restore_file_ftp.tmp", sys.argv[3], format="xztar")
+                if encrypted:
+                    shutil.unpack_archive(
+                        ".\\temp_archon_restore_file_ftp.tmp.d", sys.argv[3], format="xztar")
+                else:
+                        shutil.unpack_archive(
+                        ".\\temp_archon_restore_file_ftp.tmp", sys.argv[3], format="xztar")
                 print(colored("[*] Restoring files", "green"))
                 # Read the metadata to the chache
                 metadata = open(sys.argv[3]+"archon_metadata", "r").read()
                 print(colored("[-] Remove temporary files", "blue"))  # Status message
                 os.remove(sys.argv[3]+"archon_metadata")  # Remove metadata file
                 os.remove(".\\temp_archon_restore_file_ftp.tmp") # Remove downloaded file
+                if encrypted:
+                    os.remove(".\\temp_archon_restore_file_ftp.tmp.d")
                 # Print status message and metadata time
                 print(colored("[*] Restored from backup (Backup Time " +
                     metadata.split(";\n")[0]+")", "green"))
