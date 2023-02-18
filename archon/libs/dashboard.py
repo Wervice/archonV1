@@ -16,11 +16,14 @@ def push(status, file, to, folder=False):
     else:
         note = to + " seemes to be a local path. If it's a removable drive, make sure it's disconected from your PC after backup."
     icon = "mimeicons/mimeicon_"+get_file_extension(file)+".svg"
-    open("assets/backup_list.html", "a").write("<tr><td>"+file+" to "+to+"</td><td>"+status.replace("success", "<span class=green>Success</span>").replace("fail_copyisfalse", "<span class=red>Copy is not correct</span>").replace("fail_filenotfound", "<span class=red>File Not Found</span>")+"</td><td>"+dt_string+"</td></tr>")
+    open("assets/backup_list.html", "a").write("<tr><td>"+file+" to "+to+"</td><td>"+status.replace("success", "<span class=green>Success</span>").replace("fail_copyisfalse", "<span class=red>Copy is not correct</span>").replace("fail_filenotfound", "<span class=red>File Not Found</span>").replace("fail_permssion", "<span class=red>Permission error (FTP)</span>")+"</td><td>"+dt_string+"</td></tr>")
     open("assets/backup_list.csv", "a").write("\n"+file+" -> "+to+";"+status+";"+dt_string+";;")
     if folder:
         icon = "mimeicons/folder.svg"
-    open("assets\\index.html", "w").write(open("assets\\template.html").read().replace("$status", status.replace("success", "<span class=green>Success</span>").replace("fail_copyisfalse", "<span class=red>Copy is not correct</span>").replace("fail_filenotfound", "<span class=red>File Not Found</span>")).replace("$file", str(file) + " to " + to).replace("$time", dt_string).replace("$note", note).replace("$icon", icon).replace("$backup_list", open("assets/backup_list.html", "r").read()))
+    open("assets\\index.html", "w").write(open("assets\\template.html").read().replace("$status", status.replace("success", "<span class=green>Success</span>").replace("fail_copyisfalse", "<span class=red>Copy is not correct</span>").replace("fail_filenotfound", "<span class=red>File Not Found</span>").replace("fail_permssion", "<span class=red>Permission error (FTP)</span>")).replace("$file", str(file) + " to " + to).replace("$time", dt_string).replace("$note", note).replace("$icon", icon).replace("$backup_list", open("assets/backup_list.html", "r").read()))
 def show():
     import os
     os.system("start assets\\index.html")
+
+# filenotfound
+# permission
