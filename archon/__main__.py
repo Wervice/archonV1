@@ -144,7 +144,7 @@ try:
                 # Print status message and metadata time
                 print(colored("[*] Restored from backup (Backup Time " +
                     metadata.split(";\n")[0]+")", "green"))
-            except IndexError:
+            except FileNotFoundError:
                 print(colored("File Not Found\nExiting now", "red"))
         elif sys.argv[1] == "fbackupftp":
             host = input(colored("Host: ", "blue"))
